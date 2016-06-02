@@ -28,7 +28,7 @@ gulp.task('watch', function() {
 gulp.task('images', function() {
     return gulp.src('./img/**/*')
             .pipe(imagemin({optimizationLevel: 5}))
-            .pipe(gulp.dest('./img2'));
+            .pipe(gulp.dest('./img'));
 });
 
 gulp.task('less', function () {

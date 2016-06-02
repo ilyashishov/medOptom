@@ -103,7 +103,7 @@
 						3 300 руб. - 15 кг. <br>
 						<i>куботейнер</i>
 					</p>
-					<a href="#" class="buy">В корзину</a>
+					<a href="#" item-price="3300" item-weight='15' item-name='Гречишный мёд' class="buy">В корзину</a>
 				</div>
 				<div>
 					<div class="img">
@@ -115,7 +115,7 @@
 						4 500 руб. - 15 кг. <br>
 						<i>куботейнер</i>
 					</p>
-					<a href="#" class="buy">В корзину</a>
+					<a href="#" item-price="4500" item-weight='15' item-name='Акация мёд <i>(белая акация)</i>' class="buy">В корзину</a>
 				</div>
 				<div>
 					<div class="img">
@@ -306,6 +306,7 @@
 			<div class="close_button"></div>
 			<h2>Корзина</h2>
 			<table cellspacing="0" cellpadding="0">
+			<thead>
 				<tr>
 					<th style="width: 300px;">Название</th>
 					<th style="width: 50px;">Вес</th>
@@ -314,7 +315,11 @@
 					<th style="width: 70px;">Стоимость</th>
 					<th style="width: 5px;"></th>
 				</tr>
-				<tr>
+			</thead>
+			<tbody>
+				
+			</tbody>
+				<!-- <tr>
 					<td>
 						<img src="./img/grehishny.png" alt="">
 						<p>Акациевый+чернокленовый <br> мёд (жидкий)</p>
@@ -335,8 +340,17 @@
 					<td>1</td>
 					<td>3 675 руб.</td>
 					<td><a href="" class="delete_item"></a></td>
-				</tr>
+				</tr> -->
 			</table>
+			<p class="all_item">Общий вес: <span class="all_weight"></span> кг, итого: <span class="all_cost"></span> руб.</p>
+			<form action="">
+				<p>Укажите свои данные для доставки</p>
+				<input type="text" style='margin-left: 25px;' placeholder="Ваше имя">
+				<input type="text" placeholder="+7">
+				<input type="text" placeholder="Ваш email">
+				<textarea name="" id="" cols="30" rows="10" placeholder="Адрес доставки"></textarea>
+				<input type="submit" value="Оформить заказ">
+			</form>
 		</div>
 	</div>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-rc1/jquery.min.js"></script>
