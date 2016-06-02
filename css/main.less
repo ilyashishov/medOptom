@@ -27,8 +27,11 @@ body{
 header{
 	width: 100%;
 	height: 800px;
-	// background-image: url(../img/header.png);
-	background-color: #161608;
+	background-image: url(../img/header.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	// background-color: #161608;
 	.top{
 		width: 100%;
 		height: 80px;
@@ -212,6 +215,7 @@ header{
 		}
 		.back{
 			left: 20px;
+			display: none;
 		}
 		.slider{
 			width: 800px;
@@ -232,11 +236,11 @@ header{
 	.title{
 		margin-bottom: 20px;
 	}
-	.photes{
+	.photos{
 		width: 800px;
 		margin: 0px auto;
-		.phote{
-			width: 254px;
+		.photo{
+			width: 252px;
 			height: 205px;
 			margin-left: 7px;
 			display: inline-block;
@@ -266,7 +270,7 @@ header{
 				}
 			}
 		}
-		.phote.big{
+		.photo.big{
 			width: 518px;
 		}
 	}
@@ -344,6 +348,82 @@ footer{
 			font-size: 12px;
 			line-height: 12px;
 			margin-left: 10px;
+		}
+	}
+}
+
+.windows{
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,.7);
+	display: none;
+	.close{
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		width: 100%;
+		height: 100%;
+		z-index: 1;
+	}
+	.basket_form{
+		width: 800px;
+		position: relative;
+		background-color: #fff;
+		padding: 10px 0px;
+		margin: 0px auto;
+		margin-top: 130px;
+		z-index: 10;
+		.close_button{
+			width: 104px;
+			height: 24px;
+			background-image: url(../img/close.png);
+			background-repeat: none;
+			position: absolute;
+			top: -35px;
+			right: -35px;
+			cursor: pointer;
+		}
+		h2{
+			margin-left: 25px;
+		}
+		table{
+			width: 100%;
+			margin: 10px 0px;
+			th{
+				background-color: #EDEDED;
+				font-size: 16px;
+				color: #070707;
+				font-weight: normal;
+				padding: 5px 0px;
+				text-align: left;
+				padding-left: 25px;
+			}
+			td{
+				font-size: 16px;
+				text-align: left;
+				padding-left: 25px;
+				img{
+					width: 64px;
+					height: 50px;
+					margin-top: 7px;
+					float: left;
+					margin-right: 10px;
+				}
+				p{
+					margin-top: 10px;
+				}
+				.delete_item{
+					display: block;
+					width: 20px;
+					height: 20px;
+					background-image: url(../img/delete_item.png);
+					margin-left: -25px;
+					margin-top: 2px;
+				}
+			}
 		}
 	}
 }

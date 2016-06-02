@@ -22,7 +22,7 @@ gulp.task('minifyJS', ['js'], function (cb) {
 
 gulp.task('watch', function() {
     gulp.watch('./css/**/*.less', ['minify-css']);
-    gulp.watch('./javascript/**/*.js', ['js']);
+    gulp.watch('./javascript/**/*.js', ['minifyJS']);
 });
 
 gulp.task('images', function() {
@@ -53,4 +53,4 @@ gulp.task('js', () => {
     .pipe(gulp.dest('./js/'));
 });
 
-gulp.task('default', ['watch', 'images', 'minify-css', 'js']);
+gulp.task('default', ['watch', 'images', 'minify-css', 'minifyJS']);
