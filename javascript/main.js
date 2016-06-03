@@ -176,3 +176,35 @@ function all(){
 $(document).ready(function($) {
 	$('.windows').height($('body').height());
 });
+
+
+
+$('.basket_form form').on('submit', function(e){
+	e.preventDefault();
+	var name = $(e.target).find('input[name=name]').val();
+	var phone = $(e.target).find('input[name=phone]').val();
+	var email = $(e.target).find('input[name=emal]').val();
+	var address = $(e.target).find('textarea[name=address]').val();
+
+	var formData = {
+		name: name,
+		phone: phone,
+		email: email,
+		address: address,
+		basket: basket
+	}
+
+	$.ajax({
+		url: 'http://localhost/send.php',
+		type: 'post',
+		dataType: 'html',
+		data: formData,
+		success: function (data) {
+			if(data == 1){
+				$('.windows').hide();
+				$('.blocks').html('<div class="thank-you"><h1>Ваша заявка принята!</h1><h4>Благодарим Вас за заказ, менеджер свяжется <br />с Вами в ближайшее время</h4></div>')
+			}
+        }
+	});
+	
+});
