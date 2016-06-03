@@ -159,7 +159,7 @@ $('.basket').on('click', () =>{
 	$('.basket_form table tbody').html(tr);
 	all();
 	$('.windows').show();
-	return false;
+	// return false;
 });
 
 function all(){
@@ -172,3 +172,7 @@ function all(){
 	$('.all_item .all_weight').text(weight);
 	$('.all_item .all_cost').text(cost)
 }
+
+$(document).ready(function($) {
+	$('.windows').height($('body').height());
+});
