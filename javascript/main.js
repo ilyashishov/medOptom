@@ -52,7 +52,7 @@ $('.buy').on('click', function(e){
 	var self = this;
 	var add = true;
 	if($(this).hasClass('hover')){
-		$(this).removeClass('hover').text('В карзину');
+		$(this).removeClass('hover').text('В корзину');
 		basket.forEach(function(item, i, arr) {
 			if(item.id == $(self).attr('index')){
 				basket.splice(i, 1);
@@ -60,7 +60,7 @@ $('.buy').on('click', function(e){
 			}
 		});
 	}else{
-		$(this).addClass('hover').text('Убрать из карзины');
+		$(this).addClass('hover').text('Убрать из корзины');
 		basket.forEach(function(item, i, arr) {
 			if(item.id == $(self).attr('index')){
 				item.count = parseInt(item.count) + 1;
@@ -123,7 +123,7 @@ $('.basket_form').on('click', '.delete_item' , function(){
 	});
 	$('.buy').each(function(index, el) {
 		if($(el).attr('index') == $(self).attr('index')){
-			$(el).removeClass('hover').text('В карзину');
+			$(el).removeClass('hover').text('В корзину');
 		}
 	});
 	var tr = '';
@@ -195,7 +195,7 @@ $('.basket_form form').on('submit', function(e){
 	}
 
 	$.ajax({
-		url: 'http://localhost/send.php',
+		url: './php/send.php',
 		type: 'post',
 		dataType: 'html',
 		data: formData,
