@@ -159,7 +159,7 @@ $('.basket').on('click', () =>{
 	$('.basket_form table tbody').html(tr);
 	all();
 	$('.windows').show();
-	// return false;
+	return false;
 });
 
 function all(){
@@ -202,9 +202,29 @@ $('.basket_form form').on('submit', function(e){
 		success: function (data) {
 			if(data == 1){
 				$('.windows').hide();
-				$('.blocks').html('<div class="thank-you"><h1>Ваша заявка принята!</h1><h4>Благодарим Вас за заказ, менеджер свяжется <br />с Вами в ближайшее время</h4></div>')
+				$('.blocks').html('<div class="thank-you"><h1>Ваша заявка принята!</h1><h4>Благодарим Вас за заказ, менеджер свяжется <br />с Вами в ближайшее время</h4></div>');
+				setTimeout(() =>{
+					 location.reload();
+				},3000)
 			}
         }
 	});
 	
 });
+
+
+function updateBasket(){
+	var tr = '';
+	basket.forEach(function(item, i, arr) {
+		tr += '<tr>';
+		tr +='<td><img src="'+item.img+'" alt=""><p>'+item.name+'</p></td>';
+		tr +='<td>'+item.weight+' кг</td>';
+		tr +='<td>'+item.price+' руб.</td>';
+		tr +='<td><input class="input_count" type="number" index="'+item.id+'" value="'+item.count+'"</td>';
+		tr +='<td>'+item.cost+' руб.</td>';
+		tr +='<td><a href="#" class="delete_item" index="'+item.id+'"></a></td>';
+		tr += '</tr>';
+	});
+	$('.basket_form table tbody').html(tr);
+	all();
+}
