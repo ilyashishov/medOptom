@@ -228,3 +228,5 @@ function updateBasket(){
 	$('.basket_form table tbody').html(tr);
 	all();
 }
+
+$('[name=phone]').mask("+7 (999) 999-99-99");

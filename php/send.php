@@ -2,7 +2,7 @@
 if(isset($_POST['name']) && isset($_POST['phone'])){
 	$name = $_POST['name'];
 	$phone = $_POST['phone'];
-	// $mail = $_POST['email'];
+	$mail = $_POST['mail'];
 	$address = $_POST['address'];
 	$basket = $_POST['basket'];
 	$allWeight = 0;
@@ -15,7 +15,7 @@ if(isset($_POST['name']) && isset($_POST['phone'])){
 	$table .= '<body>';
 	$table .= '<p><b>Имя: </b>'.$name.'</p>';
 	$table .= '<p><b>Номер телефона: </b>'.$phone.'</p>';
-	// $table .= '<p><b>E-mail: </b>'.$mail.'</p>';
+	$table .= '<p><b>E-mail: </b>'.$mail.'</p>';
 	$table .= '<p><b>Адрес: </b>'.$address.'</p>';
 
 	$table .= '<table style="width: 100%; text-align: left">';
@@ -61,6 +61,12 @@ if(isset($_POST['name']) && isset($_POST['phone'])){
 
 
 	mail($to, $subject, $table, $headers);
+	if(isset($_POST['mail'])){
+		$subject = "Ваша заявка принята";
+		$mes = '<h1>Ваша заявка принята.</h1>';
+		$mes = '<h2>Наш оператор свяжется с вами в ближайшее время</h2>'
+		mail($mail, $subject, $mes, $headers);
+	}
 
     echo 1;
 
