@@ -59,6 +59,7 @@ $('.buy').on('click', function(e){
 				return false;
 			}
 		});
+		$(this).parent().find('.counter').hide().val('');
 	}else{
 		$(this).addClass('hover').text('Убрать из корзины');
 		basket.forEach(function(item, i, arr) {
@@ -69,6 +70,7 @@ $('.buy').on('click', function(e){
 				return false;
 			}
 		});
+		$(this).parent().find('.counter').show();
 		if(!add){
 			return false;
 		}
@@ -81,6 +83,13 @@ $('.buy').on('click', function(e){
 			cost: $(this).attr('item-price'),
 			img: $(this).parent().find('img').attr('src')
 		})
+	}
+	if(basket.length > 0){
+		$('.basket').addClass('countNotOne');
+		$('.basket .count').text(basket.length);
+	}else{
+		$('.basket').removeClass('countNotOne');
+		$('.basket .count').text('')
 	}
 	return false;
 });
@@ -230,3 +239,47 @@ function updateBasket(){
 }
 
 $('[name=phone]').mask("+7 (999) 999-99-99");
+
+
+
+
+
+
+
+$(document).scroll(function(event) {
+	if($(this).scrollTop() > 81){
+		$('.top').addClass('fixed');
+	}
+	else{
+		$('.top').removeClass('fixed');
+	}
+});
+
+$('.counter').on('change', function(){
+	var self = this;
+	if($(this).val() > 0 && $(this).val() < 999){
+		basket.forEach(function(item, i, arr) {
+			if(item.name == $(self).parent().find('.name').html()){
+				console.log(item.name)
+				item.count = $(self).val();
+				item.cost = item.price * $(self).val();
+				item.weight = 15 * $(self).val();
+				return false;
+			}
+		});
+	}
+	var tr = '';
+	basket.forEach(function(item, i, arr) {
+		tr += '<tr>';
+		tr +='<td><img src="'+item.img+'" alt=""><p>'+item.name+'</p></td>';
+		tr +='<td>'+item.weight+' кг</td>';
+		tr +='<td>'+item.price+' руб.</td>';
+		tr +='<td><input min="1" max="999" class="input_count" type="number" index="'+item.id+'" value="'+item.count+'"</td>';
+		tr +='<td>'+item.cost+' руб.</td>';
+		tr +='<td><a href="#" class="delete_item" index="'+item.id+'"></a></td>';
+		tr += '</tr>';
+	});
+	all();
+	$('.basket_form table tbody').html(tr);
+	
+});
